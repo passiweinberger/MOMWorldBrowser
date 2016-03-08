@@ -254,8 +254,8 @@ if ($('body').hasClass('mobile')) {
     // is mobile
     viewer = new Cesium.Viewer('cesiumContainer', {
         sceneModePicker: false,
-        timeline: true,
-        animation: true,
+        timeline: false,
+        animation: false,
         sceneMode: Cesium.SceneMode.SCENE3D,
         navigationHelpButton: true,
         navigationInstructionsInitiallyVisible: false,
@@ -271,8 +271,8 @@ if ($('body').hasClass('mobile')) {
     // is desktop
     viewer = new Cesium.Viewer('cesiumContainer', {
         sceneModePicker: false,
-        timeline: true,
-        animation: true,
+        timeline: false,
+        animation: false,
         sceneMode: Cesium.SceneMode.SCENE3D,
         navigationHelpButton: true,
         navigationInstructionsInitiallyVisible: true,

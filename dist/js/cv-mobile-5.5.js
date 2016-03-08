@@ -1250,6 +1250,7 @@ $(document).ready(function () {
     });
     // TODO
     //$('#welcomeModal').modal();
+    toggleTimeline(false);
     resize();
 
     if ($('.control-sidebar').hasClass('control-sidebar-open')) {

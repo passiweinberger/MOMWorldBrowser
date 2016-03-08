@@ -1091,6 +1091,7 @@ $(document).ready(function () {
         }
     });
     // TODO
+    toggleTimeline(false);
     //$('#welcomeModal').modal();
     if ($('.control-sidebar').hasClass('control-sidebar-open')) {
         $('#siderbar-toggle').addClass('active');
