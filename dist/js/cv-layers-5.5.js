@@ -48,8 +48,8 @@
                 I: "dfki_trending_topics",
                 T: 'geojson',
                 P: false,
-                G: "http://", // TODO
-                S: "DFKI MOM Group - Combined Sources and Analysed Trending Topics Worldwide (currently only in english)",
+                G: "/layers/dfki/2016_03_08.geojson", // TODO
+                S: "DFKI MOM Group - Combined Sources and Analysed Trending Topics Worldwide (2016/03/08)(currently only in english)",
                 U: "http://mom.dfki.de/",
                 N: "DFKI MOM | Trending Topics"
             }
