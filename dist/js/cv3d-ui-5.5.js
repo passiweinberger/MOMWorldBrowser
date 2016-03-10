@@ -887,7 +887,7 @@ $('.reset-view').click(function (e) {
     e.preventDefault();
  $('.cesium-home-button').trigger('click');
 });
-/*
+
  var animationContainer = $('.cesium-viewer-animationContainer');
  var timelineContainer = $('.cesium-viewer-timelineContainer');
  var credit = $('.cesium-viewer-bottom');
@@ -896,14 +896,10 @@ $('.reset-view').click(function (e) {
  timelineContainer.hide();
  credit.hide();
 
-function toggleTimeline(show) {
-  if (show) {
-    animationContainer.show();
-    timelineContainer.show();
-    $('.toggle-timeline').addClass('active');
-  } else if (animationContainer.is(":visible")) {
-    //animationContainer.hide();
-   // timelineContainer.hide();
+function toggleTimeline() {
+  if (animationContainer.is(":visible")) {
+    animationContainer.hide();
+    timelineContainer.hide();
     $('.toggle-timeline').removeClass('active');
   } else {
     animationContainer.show();
@@ -914,14 +910,14 @@ function toggleTimeline(show) {
     $('.toggle-timeline').addClass('active');
   }
 }
-$('.toggle-timeline').click(function (e) {
-    e.preventDefault();
-    toggleTimeline();
-}); */
+$('.toggle-timeline').toggle(
+  function (e) { e.preventDefault(); toggleTimeline(); $(this).addClass('active'); },
+  function (e) { e.preventDefault(); toggleTimeline(); $(this).removeClass('active'); }
+);
 
 var startTime = Cesium.JulianDate.fromDate(new Date(Date.UTC(2012, 4, 8)));
 var endTime = Cesium.JulianDate.now();
-viewer.timeline.zoomTo(startTime, endTime);
+if (viewer.timeline) { viewer.timeline.zoomTo(startTime, endTime); };
 
 $('.sharing-tab').click(function () {
     $('#welcomeModal').modal('hide').on('hidden.bs.modal', function () {
