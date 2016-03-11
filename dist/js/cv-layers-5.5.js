@@ -24,6 +24,7 @@
     I: 'Climate-Viewer',
     Live: {
         N: "Alerts",
+        icon: "fa-exclamation-triangle",
         Disasters: {
             N: "Disasters",
             icon: "fa-exclamation-circle",
@@ -36,9 +37,431 @@
                     S: "PDC's global active hazards mapservice. Data are dynamically updated in real-time. The Pacific Disaster Center's (PDC) Integrated Active Hazards Map Service includes PDC integrated hazards. This Map Service is offered in KML, WMS and WFS formats.",
                     U: "http://www.pdc.org/mde/services.jsp",
                     N: "PDC Integrated Active Hazards "
+                },
+                {
+                    I: "ngdc_hazards",
+                    T: 'arcgis-layer',
+                    G: "http://maps.ngdc.noaa.gov/arcgis/rest/services/web_mercator/hazards/MapServer",
+                    L: '0,1,2,3,4,5,6,7,8,9,10,11',
+                    S: "Natural hazards such as earthquakes, tsunamis, and volcanoes affect both coastal and inland areas. Long-term data from these events can be used to establish the past record of natural hazard event occurrences, which is important for planning, response, and mitigation of future events. NOAA's National Centers for Environmental Information (NCEI) plays a major role in post-event data collection. The data in this archive is gathered from scientific and scholarly sources, regional and worldwide catalogs, tide gauge reports, individual event reports, and unpublished works.",
+                    U: "http://ngdc.noaa.gov/hazard/hazards.shtml",
+                    N: "Historic Disasters"
+                }
+            ]
+        },
+        Earthquake: {
+            N: "Earthquake",
+            icon: "fa-rss",
+            '>': [
+                {
+                    I: "usgs-all-hour",
+                    T: 'geojson',
+                    ML: "usgs-eq",
+                    MI: "/img/icons/earthquakes.png",
+                    G: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson",
+                    S: "United States Geological Society (USGS) Earthquake Hazards Program",
+                    U: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php",
+                    N: "USGS - All Earthquakes (Last Hour)"
+                },
+                //{ I: "usgs-big-today", T: 'geojson', ML: "usgs-eq", MI: "/img/icons/earthquakes.png", G: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_day.geojson", S: "United States Geological Society (USGS) Earthquake Hazards Program", U: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php", N: "USGS - Significant Earthquakes (Today)"},
+                {
+                    I: "usgs-45-today",
+                    T: 'geojson',
+                    ML: "usgs-eq",
+                    MI: "/img/icons/earthquakes.png",
+                    G: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson",
+                    S: "United States Geological Society (USGS) Earthquake Hazards Program",
+                    U: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php",
+                    N: "USGS - M4.5+ Earthquakes (Today)"
+                },
+                {
+                    I: "usgs-25-today",
+                    T: 'geojson',
+                    ML: "usgs-eq",
+                    MI: "/img/icons/earthquakes.png",
+                    G: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson",
+                    S: "United States Geological Society (USGS) Earthquake Hazards Program",
+                    U: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php",
+                    N: "USGS - M2.5+ Earthquakes (Today)"
+                },
+                {
+                    I: "usgs-all-today",
+                    T: 'geojson',
+                    ML: "usgs-eq",
+                    MI: "/img/icons/earthquakes.png",
+                    G: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",
+                    S: "United States Geological Society (USGS) Earthquake Hazards Program",
+                    U: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php",
+                    N: "USGS - All Earthquakes (Today)",
+                    Y: true
+                },
+                //{ I: "usgs-big-7day", T: 'geojson', ML: "usgs-eq", MI: "/img/icons/earthquakes.png", G: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.geojson", S: "United States Geological Society (USGS) Earthquake Hazards Program", U: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php", N: "USGS - Significant Earthquakes (Last Week)"},
+                {
+                    I: "usgs-45-7day",
+                    T: 'geojson',
+                    ML: "usgs-eq",
+                    MI: "/img/icons/earthquakes.png",
+                    G: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson",
+                    S: "United States Geological Society (USGS) Earthquake Hazards Program",
+                    U: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php",
+                    N: "USGS - M4.5+ Earthquakes (Last Week)"
+                },
+                {
+                    I: "usgs-25-7day",
+                    T: 'geojson',
+                    ML: "usgs-eq",
+                    MI: "/img/icons/earthquakes.png",
+                    G: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson",
+                    S: "United States Geological Society (USGS) Earthquake Hazards Program",
+                    U: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php",
+                    N: "USGS - M2.5+ Earthquakes (Last Week)"
+                },
+                {
+                    I: "usgs-all-7day",
+                    T: 'geojson',
+                    ML: "usgs-eq",
+                    MI: "/img/icons/earthquakes.png",
+                    G: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson",
+                    S: "United States Geological Society (USGS) Earthquake Hazards Program",
+                    U: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php",
+                    N: "USGS - All Earthquakes (Last Week)",
+                    Y: true
+                },
+                //{ I: "usgs-big-30day", T: 'geojson', ML: "usgs-eq", MI: "/img/icons/earthquakes.png", G: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson", S: "United States Geological Society (USGS) Earthquake Hazards Program", U: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php", N: "USGS - Significant Earthquakes (Last Month)"},
+                {
+                    I: "usgs-45-30day",
+                    T: 'geojson',
+                    ML: "usgs-eq",
+                    MI: "/img/icons/earthquakes.png",
+                    G: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson",
+                    S: "United States Geological Society (USGS) Earthquake Hazards Program",
+                    U: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php",
+                    N: "USGS - M4.5+ Earthquakes (Last Month)"
+                },
+                {
+                    I: "usgs-25-30day",
+                    T: 'geojson',
+                    ML: "usgs-eq",
+                    MI: "/img/icons/earthquakes.png",
+                    G: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson",
+                    S: "United States Geological Society (USGS) Earthquake Hazards Program",
+                    U: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php",
+                    N: "USGS - M2.5+ Earthquakes (Last Month)"
+                },
+                {
+                    I: "usgs-all-30day",
+                    T: 'geojson',
+                    ML: "usgs-eq",
+                    MI: "/img/icons/earthquakes.png",
+                    G: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
+                    S: "United States Geological Society (USGS) Earthquake Hazards Program",
+                    U: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php",
+                    N: "USGS - All Earthquakes (Last Month)",
+                    Y: true
+                },
+                {
+                    I: "EarthquakesNT",
+                    T: 'arcgis-layer',
+                    G: "http://tmservices1.esri.com/arcgis/rest/services/LiveFeeds/EarthquakesNT/MapServer",
+                    S: "©2015 Esri, Earthquake data for the last 90 days from the USGS. In addition to web-based maps and html pages, USGS provides several alternative ways to obtain real-time earthquake lists. Earthquake information is extracted from a merged catalog of earthquakes located by the USGS and contributing networks. Earthquakes will be broadcast within a few minutes for California events, and within 30-minutes for worldwide events",
+                    U: "http://www.cpc.ncep.noaa.gov/",
+                    N: "USGS - M3.0+ Earthquakes (Past 90 Days)"
+                },
+                {
+                    I: "Earthquakes",
+                    T: 'arcgis-layer',
+                    G: "http://tmservices1.esri.com/arcgis/rest/services/LiveFeeds/Earthquakes/MapServer",
+                    S: "©2015 Esri, Earthquake data for the last 90 days from the USGS. In addition to web-based maps and html pages, USGS provides several alternative ways to obtain real-time earthquake lists. Earthquake information is extracted from a merged catalog of earthquakes located by the USGS and contributing networks. Earthquakes will be broadcast within a few minutes for California events, and within 30-minutes for worldwide events",
+                    U: "http://www.cpc.ncep.noaa.gov/",
+                    N: "USGS - All Earthquakes (Past 90 Days)"
+                },
+                {
+                    I: "kml-emsc",
+                    T: 'kml',
+                    P: true,
+                    G: "http://www.emsc-csem.org/Earthquake/Map/earth/kml.php",
+                    S: "Centre Sismologique Euro-Méditerranéen (CSEM) Euro-Med earthquakes",
+                    U: "http://www.emsc-csem.org/",
+                    N: "Euro-Med Earthquakes - CSEM/EMSC"
+                },
+                {
+                    P: true,
+                    I: "kml-buoy",
+                    T: 'kml',
+                    G: "http://www.ndbc.noaa.gov/kml/marineobs_as_kml.php?sort=owner",
+                    S: "National Oceanic and Atmospheric Administration (NOAA) National Data Buoy Center",
+                    U: "http://www.ndbc.noaa.gov/",
+                    N: "NOAA Buoys"
+                }
+            ]
+        },
+        Volcano: {
+            N: "Volcano",
+            icon: "fa-exclamation-triangle",
+            '>': [
+                {
+                    I: "kml-volcano",
+                    P: true,
+                    M: true,
+                    MI: '/img/icons/volcano.png',
+                    T: 'kml',
+                    G: "http://www.volcano.si.edu/news/WeeklyVolcanoGE-Reports.kmz",
+                    S: "Smithsonian Institute National Museum of History, Global Volcanism Program: Latest Volcanic Activity",
+                    U: "http://www.volcano.si.edu/",
+                    N: "Weekly Activity and Eruptions"
+                },
+                {
+                    I: "gvp-volcanos",
+                    T: 'geojson',
+                    G: "/layers/geojson/gvp-volcanos-cv3d-v2.geojson",
+                    MI: "/img/icons/volcano.png",
+                    S: "Smithsonian Institute National Museum of History, Global Volcanism Program",
+                    U: "http://www.volcano.si.edu/",
+                    N: "Global Vocanoes"
+                }
+            ]
+        },
+        Fire: {
+            N: "Fire",
+            icon: "fa-fire",
+            '>': [
+                {
+                    I: "MODIS_Thermal",
+                    T: 'arcgis-layer',
+                    G: "http://tmservices1.esri.com/arcgis/rest/services/LiveFeeds/MODIS_Thermal/MapServer",
+                    S: "MODIS Global Fires is a product of NASA’s Earth Observing System Data and Information System (EOSDIS), part of NASA's Earth Science Data. EOSDIS integrates remote sensing and GIS technologies to deliver global MODIS hotspot/fire locations to natural resource managers and other stakeholders around the World.<br><br>MODIS stands for MODerate Resolution Imaging Spectroradiometer. The MODIS instrument is on board NASA’s Earth Observing System (EOS) Terra (EOS AM) and Aqua (EOS PM) satellites. The orbit of the Terra satellite goes from north to south across the equator in the morning and Aqua passes south to north over the equator in the afternoon resulting in global coverage every 1 to 2 days. The EOS satellites have a ±55 degree scanning pattern and orbit at 705 km with a 2,330 km swath width.<br><br>It takes approximately 2 – 4 hours after satellite overpass for MODIS Rapid Response to process the data, and for the Fire Information for Resource Management System (FIRMS) to update the website. Occasionally, hardware errors mean that it takes longer the 2-4 hours to process the data. Additional information on the MODIS system status can be found at MODIS Rapid Response. ",
+                    U: "http://earthdata.nasa.gov/data/near-real-time-data/data/instrument/modis",
+                    N: "Fire Dectection - NASA MODIS"
+                },
+                {
+                    I: "kml-usda-fire",
+                    Z: true,
+                    T: 'kml',
+                    P: true,
+                    G: "http://activefiremaps.fs.fed.us/data/kml/conus.kmz",
+                    S: "US Department of Agriculture (USDA) Forest Service Remote Sensing Applications Center, Active Fire Mapping Program",
+                    U: "http://activefiremaps.fs.fed.us/",
+                    N: "Active Fire Mapping Program - USDA"
+                },
+                {
+                    I: "kml-noaa-fire",
+                    T: 'kml',
+                    P: true,
+                    G: "http://www.ospo.noaa.gov/data/land/fire/fire.kml",
+                    S: "National Oceanic and Atmospheric Administration (NOAA) Hazard Mapping System Fire and Smoke Product",
+                    U: "http://www.ospo.noaa.gov/Products/land/hms.html",
+                    N: "Fires Dectection - NOAA HMS"
+                },
+                {
+                    I: "kml-noaa-smoke",
+                    T: 'kml',
+                    P: true,
+                    G: "http://www.ospo.noaa.gov/data/land/fire/smoke.kml",
+                    S: "National Oceanic and Atmospheric Administration (NOAA) Hazard Mapping System Fire and Smoke Product",
+                    U: "http://www.ospo.noaa.gov/Products/land/hms.html",
+                    N: "Smoke Dectection - NOAA HMS"
+                },
+                {
+                    I: "ndgd-smoke-forecast",
+                    T: 'arcgis-layer',
+                    G: "http://tmservices1.esri.com/arcgis/rest/services/LiveFeeds/NDGD_SmokeForecast/MapServer",
+                    S: "The National Digital Guidance Database (NDGD) is a sister to the National Digital Forecast Database (NDFD). Information in NDGD may be used by NWS forecasters as guidance in preparing official NWS forecasts in NDFD. The experimental/guidance NDGD data is not an official NWS forecast product.<br><br>Smoke Forecast is the projected visible smoke from the Continental United States for 48 hours in 1 hour incriments. This data is updated every 24 hours by NWS ",
+                    U: "http://www.nws.noaa.gov/ndgd/",
+                    N: "Smoke Forecast - NDGD"
+                },
+                {
+                    I: "nowcoast-wet-thunderstorm-fire",
+                    T: 'arcgis-layer',
+                    G: "http://nowcoast.noaa.gov/arcgis/rest/services/nowcoast/guidance_natlcenters_meteoceanhydro_outlooks_time/MapServer",
+                    L: "7,11",
+                    S: "This nowCOAST time-enabled map service provides maps of the latest NOAA/NWS Outlooks for Severe Thunderstorms (Convective Outlooks) and Critical Fire Weather for both Dry and Non-Dry Thunderstorms. These outlooks are issued by the NOAA/NWS/NCEP Storm Prediction Center (SPC) in Norman, Oklahoma. The colors used on the maps to indicate the locations and risk level of severe thunderstorms and critical fire weather conditions are the same as (or very close to) those used on SPC's outlook maps. To ensure the latest information is displayed, the maps of these outlooks are updated in this nowCOAST map service every half hour, but the underlying outlooks produced by SPC are usually issued only at 0100, 0600, 1300, 1630, 1730, and 2000 UTC However, amendments or more frequent updates will be issued as necessary.",
+                    U: "http://www.nws.noaa.gov/ndgd/",
+                    N: "Thunderstorm Critical Fire Weather Outlook"
+                }
+            ]
+        },
+        FEMA: {
+            N: "FEMA",
+            icon: "fa-eye",
+            '>': [
+                {
+                    I: "wms-femad",
+                    T: 'wms',
+                    G: "http://gis.fema.gov/SOAP//FEMA/DECs/MapServer/WMSServer",
+                    L: "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25",
+                    S: "Federal Emergency Management Agency (FEMA)",
+                    U: "http://gis.fema.gov/DataFeeds.html",
+                    N: "FEMA Current Disaster Declarations"
+                },
+                {
+                    I: "wms-femah",
+                    T: 'wms',
+                    G: "http://gis.fema.gov/SOAP//FEMA/HistoricalDesignations/MapServer/WMSServer",
+                    L: "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25",
+                    S: "Federal Emergency Management Agency (FEMA)",
+                    U: "http://gis.fema.gov/DataFeeds.html",
+                    N: "FEMA Historical Disaster Declarations"
+                },
+                {
+                    I: "wms-femar",
+                    T: 'wms',
+                    G: "http://gis.fema.gov/SOAP//FEMA/RegHQs/MapServer/WMSServer",
+                    L: "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25",
+                    S: "Federal Emergency Management Agency (FEMA)",
+                    U: "http://gis.fema.gov/DataFeeds.html",
+                    N: "FEMA Regions and Field Offices"
+                },
+                {
+                    I: "wms-femae",
+                    T: 'wms',
+                    G: "http://gis.fema.gov/SOAP//FEMA/EvacRoutes/MapServer/WMSServer",
+                    L: "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25",
+                    S: "Federal Emergency Management Agency (FEMA)",
+                    U: "http://gis.fema.gov/DataFeeds.html",
+                    N: "FEMA Hurricane Evacuation Routes"
+                }
+            ]
+        },
+        Report: {
+            N: "CV Reports",
+            icon: "fa-bullhorn",
+            '>': [
+                {
+                    I: "cvr01",
+                    T: 'geojson',
+                    M: true,
+                    MS: "2",
+                    G: "/layers/geojson/cvreports-cv3d-v2.geojson",
+                    MI: "/img/cv3d-red.png",
+                    S: "Climate Viewer Reports",
+                    U: "https://climateviewer.crowdmap.com/",
+                    N: "CV Reports - 2011 - 2015"
                 }
             ]
         }
+/*        News: {
+            N: "Energy News",
+            icon: "fa-bolt",
+            '>': [
+                {
+                    I: "CCR-Alternative-Energy",
+                    T: 'kml',
+                    P: true,
+                    G: "http://alternative.carboncapturereport.org/cgi-bin//dailyreport_kml?DATE=&r=346661585.98164&type=2",
+                    S: "This page summarizes all English-language monitored mainstream and social media coverage worldwide of Alternative Energy. For each 24 hour period (midnight-midnight CST), a complete analytical report called the Daily Report summarizes all content.",
+                    U: "http://alternative.carboncapturereport.org/cgi-bin/topic?",
+                    N: "Alternative Energy Global News"
+                },
+                {
+                    I: "CCR-Biofuels",
+                    T: 'kml',
+                    P: true,
+                    G: "http://biofuels.carboncapturereport.org/cgi-bin//dailyreport_kml?DATE=&r=111562052.54124&type=2",
+                    S: "This page summarizes all English-language monitored mainstream and social media coverage worldwide of Biofuels. For each 24 hour period (midnight-midnight CST), a complete analytical report called the Daily Report summarizes all content. ",
+                    U: "http://biofuels.carboncapturereport.org/cgi-bin/topic?",
+                    N: "Biofuels Global News"
+                },
+                {
+                    I: "CCR-Carbon-Capture-Sequestration",
+                    T: 'kml',
+                    P: true,
+                    G: "http://ccs.carboncapturereport.org/cgi-bin//dailyreport_kml?DATE=&r=1031827101.41376&type=2",
+                    S: "This page summarizes all English-language monitored mainstream and social media coverage worldwide of Carbon Capture/Carbon Sequestration. For each 24 hour period (midnight-midnight CST), a complete analytical report called the Daily Report summarizes all content.",
+                    U: "http://ccs.carboncapturereport.org/cgi-bin/topic?",
+                    N: "Carbon Capture/Carbon Sequestration Global News"
+                },
+                {
+                    I: "CCR-Carbon-Credits",
+                    T: 'kml',
+                    P: true,
+                    G: "http://carboncredits.carboncapturereport.org/cgi-bin//dailyreport_kml?DATE=&r=1188882282.95717&type=2",
+                    S: "This page summarizes all English-language monitored mainstream and social media coverage worldwide of Carbon Credits. For each 24 hour period (midnight-midnight CST), a complete analytical report called the Daily Report summarizes all content.",
+                    U: "http://carboncredits.carboncapturereport.org/cgi-bin/topic?",
+                    N: "Carbon Credits Global News"
+                },
+                {
+                    I: "CCR-Climate-Change",
+                    T: 'kml',
+                    P: true,
+                    G: "http://climatechange.carboncapturereport.org/cgi-bin//dailyreport_kml?DATE=&r=721335467.961668&type=2",
+                    S: "This page summarizes all English-language monitored mainstream and social media coverage worldwide of Climate Change. For each 24 hour period (midnight-midnight CST), a complete analytical report called the Daily Report summarizes all content.",
+                    U: "http://climatechange.carboncapturereport.org/cgi-bin/topic?",
+                    N: "Climate Change Global News"
+                },
+                {
+                    I: "CCR-Coal",
+                    T: 'kml',
+                    P: true,
+                    G: "http://coal.carboncapturereport.org/cgi-bin//dailyreport_kml?DATE=&r=784447108.648423&type=2",
+                    S: "This page summarizes all English-language monitored mainstream and social media coverage worldwide of Coal. For each 24 hour period (midnight-midnight CST), a complete analytical report called the Daily Report summarizes all content. ",
+                    U: "http://coal.carboncapturereport.org/cgi-bin/topic?",
+                    N: "Coal Global News"
+                },
+                {
+                    I: "CCR-Geothermal",
+                    T: 'kml',
+                    P: true,
+                    G: "http://geothermal.carboncapturereport.org/cgi-bin//dailyreport_kml?DATE=&r=794285841.080333&type=2",
+                    S: "This page summarizes all English-language monitored mainstream and social media coverage worldwide of Geothermal. For each 24 hour period (midnight-midnight CST), a complete analytical report called the Daily Report summarizes all content. ",
+                    U: "http://geothermal.carboncapturereport.org/cgi-bin/topic?",
+                    N: "Geothermal Global News"
+                },
+                {
+                    I: "CCR-Hydroelectric",
+                    T: 'kml',
+                    P: true,
+                    G: "http://hydro.carboncapturereport.org/cgi-bin//dailyreport_kml?DATE=&r=540767190.4721&type=2",
+                    S: "This page summarizes all English-language monitored mainstream and social media coverage worldwide of Hydroelectric. For each 24 hour period (midnight-midnight CST), a complete analytical report called the Daily Report summarizes all content. ",
+                    U: "http://hydro.carboncapturereport.org/cgi-bin/topic?",
+                    N: "Hydroelectric Global News"
+                },
+                {
+                    I: "CCR-Natural-Gas",
+                    T: 'kml',
+                    P: true,
+                    G: "http://gas.carboncapturereport.org/cgi-bin//dailyreport_kml?DATE=&r=928883228.782518&type=2",
+                    S: "This page summarizes all English-language monitored mainstream and social media coverage worldwide of Natural Gas. For each 24 hour period (midnight-midnight CST), a complete analytical report called the Daily Report summarizes all content. ",
+                    U: "http://gas.carboncapturereport.org/cgi-bin/topic?",
+                    N: "Natural Gas Global News"
+                },
+                {
+                    I: "CCR-Nuclear",
+                    T: 'kml',
+                    P: true,
+                    G: "http://nuclear.carboncapturereport.org/cgi-bin//dailyreport_kml?DATE=&r=342434193.281327&type=2",
+                    S: "This page summarizes all English-language monitored mainstream and social media coverage worldwide of Nuclear. For each 24 hour period (midnight-midnight CST), a complete analytical report called the Daily Report summarizes all content. ",
+                    U: "http://nuclear.carboncapturereport.org/cgi-bin/topic?",
+                    N: "Nuclear Global News"
+                },
+                {
+                    I: "CCR-Oil",
+                    T: 'kml',
+                    P: true,
+                    G: "http://oil.carboncapturereport.org/cgi-bin//dailyreport_kml?DATE=&r=1402798267.38011&type=2",
+                    S: "This page summarizes all English-language monitored mainstream and social media coverage worldwide of Oil. For each 24 hour period (midnight-midnight CST), a complete analytical report called the Daily Report summarizes all content. ",
+                    U: "http://oil.carboncapturereport.org/cgi-bin/topic?",
+                    N: "Oil Global News"
+                },
+                {
+                    I: "CCR-Solar",
+                    T: 'kml',
+                    P: true,
+                    G: "http://solar.carboncapturereport.org/cgi-bin//dailyreport_kml?DATE=&r=427206841.047327&type=2",
+                    S: "This page summarizes all English-language monitored mainstream and social media coverage worldwide of Solar. For each 24 hour period (midnight-midnight CST), a complete analytical report called the Daily Report summarizes all content. ",
+                    U: "http://solar.carboncapturereport.org/cgi-bin/topic?",
+                    N: "Solar Global News"
+                },
+                {
+                    I: "CCR-Wind",
+                    T: 'kml',
+                    P: true,
+                    G: "http://wind.carboncapturereport.org/cgi-bin//dailyreport_kml?DATE=&r=604425479.159762&type=2",
+                    S: "This page summarizes all English-language monitored mainstream and social media coverage worldwide of Wind. For each 24 hour period (midnight-midnight CST), a complete analytical report called the Daily Report summarizes all content. ",
+                    U: "http://wind.carboncapturereport.org/cgi-bin/topic?",
+                    N: "Wind Global News"
+                }
+            ]
+        } */
     },
     DFKI: {
         N: "Trending Topics",
@@ -54,7 +477,40 @@
                 N: "DFKI MOM | Trending Topics"
             }
         ]
+    },
+    Others: {
+        N: "Stuff",
+        icon: "fa-location-arrow",
+        Man_Made: {
+            N: "Man-Made stuff",
+            icon: "fa-male",
+            '>': [
+                {
+                    I: "f06",
+                    T: 'kml',
+                    G: '/layers/kml/3rdparty/places/submarine-cables-CV3D.kmz',
+                    S: "Map of ocean floor cables tapped by the NSA.",
+                    U: "http://www.submarinecablemap.com/",
+                    N: "Submarine (underwater) Communication Cables"
+                },
+                {
+                    I: "f061",
+                    T: 'kml',
+                    G: '/layers/kml/3rdparty/places/fusion-landing-points-CV3D.kmz',
+                    S: "Map of ocean floor cables tapped by the NSA.",
+                    U: "http://www.submarinecablemap.com/",
+                    N: "Submarine (underwater) Communication Cable Landings"
+                }
+            ]
+        },
+        Nature_Made: {
+            N: "Natures Stuff",
+            icon: "fa-globe",
+            '>' : [
+            ]
+        }
     }
+
 };
 
 // TODO: Get all the permissions!
